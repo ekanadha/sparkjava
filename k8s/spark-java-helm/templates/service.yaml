@@ -5,7 +5,7 @@ metadata:
   namespace: sparkjava
 spec:
   selector:
-    app:  sparkjava  #selector name should be matched to deployment.yml selector
+    app:  sparkjava-deployment  #selector name should be matched to deployment.yml selector
   type:  ClusterIP 
   ports:
   - name:  sparkjava
