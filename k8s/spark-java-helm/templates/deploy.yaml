@@ -1,44 +1,34 @@
-kind: apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  sparkjava
+  name: sparkjava-deployment
   labels:
-    name:  sparkjava
+    app: sparkjava
+  namespace: sparkjava
 spec:
+  replicas: 3
   strategy:
     rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: sparkjava
   template:
     metadata:
       labels:
-        name:  sparkjava
+        app: sparkjava
     spec:
       containers:
-      - image:  ecr 
-        name:  sparkjava
+      - name: sparkjava
+        image: saikrish12345/saprkjava:1
         resources:
           requests:
-            cpu: "1"
-            memory: "2Gb"
-          limits: 
-            cpu: '2'
-            memory: '3Gb'
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 90
-          timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 30
-          timeoutSeconds: 10      
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 300m
+            memory: 500Mi
         ports:
-        - containerPort:  8080
-          name:  sparkjava
-      restartPolicy: Always
-      imagePullPolicy: Always
+        - containerPort: 8080
