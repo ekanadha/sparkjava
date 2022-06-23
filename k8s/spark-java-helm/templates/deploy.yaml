@@ -14,7 +14,7 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: sparkjava-deployment
+      app: sparkjava
   template:
     metadata:
       labels:
