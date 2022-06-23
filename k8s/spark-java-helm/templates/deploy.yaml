@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: sparkjava
-        image: saikrish12345/saprkjava:1
+        image: 887870046594.dkr.ecr.eu-west-2.amazonaws.com/ekandha:number
         resources:
           requests:
             cpu: 100m
