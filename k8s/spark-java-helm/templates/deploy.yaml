@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: sparkjava-deployment
+        app: sparkjava
     spec:
       containers:
       - name: sparkjava
