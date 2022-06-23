@@ -14,11 +14,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: sparkjava
+      app: sparkjava-deployment
   template:
     metadata:
       labels:
-        app: sparkjava
+        app: sparkjava-deployment
     spec:
       containers:
       - name: sparkjava
